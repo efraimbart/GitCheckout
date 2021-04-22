@@ -20,6 +20,7 @@
         Update,
         Remove,
         ReRegister,
+        Deregister,
         List,
         Return
     }

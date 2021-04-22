@@ -14,6 +14,7 @@ namespace GitCheckout
         {
             Args = args;
 
+            CheckElevate();
             CheckInit();
 
             if (TryGetBranch(out var branch))
@@ -35,6 +36,32 @@ namespace GitCheckout
             }
         }
 
+        private static void CheckElevate()
+        {
+            if (Args.Any() && Args[0] == "/elevateFor")
+            {
+                var protocol = new Protocol(Args[2]);
+
+                if (!Enum.TryParse<ElevateFor>(Args[1], out var elevateFor))
+                {
+                    Environment.Exit(1);
+                }
+                
+                int exitCode;
+                switch (elevateFor)
+                {
+                    case ElevateFor.Register:
+                        exitCode = ProtocolManager.RegisterProtocolInner(protocol) ? 0 : 1;
+                        Environment.Exit(exitCode);
+                        break;
+                    case ElevateFor.Deregister:
+                        exitCode = ProtocolManager.DeregisterProtocolInner(protocol) ? 0 : 1;
+                        Environment.Exit(exitCode);
+                        break;
+                }
+            }
+        }
+        
         private static void CheckInit()
         {
             if (Settings.Default.WorkingDirectories == null)
@@ -157,6 +184,31 @@ namespace GitCheckout
             };
             var proc = Process.Start(info);
             proc?.WaitForExit();
+        }
+
+        public static bool Elevate(ElevateFor elevateFor, string extraArgs)
+        {
+            var path = typeof(Program).Assembly.Location;
+                
+            try
+            {
+                var startInfo = new ProcessStartInfo(path, $"/elevateFor {elevateFor} {extraArgs}")
+                {
+                    Verb = "runas"
+                };
+
+                var process = Process.Start(startInfo);
+
+                if (process == null) return false;
+
+                process.WaitForExit();
+
+                return process.ExitCode == 0;
+            }
+            catch
+            {
+                return false;
+            }
         }
     }
 }

@@ -1,7 +1,6 @@
 ﻿using System;
-using System.Diagnostics;
-using System.IO;
 using GitCheckout.Properties;
+using Microsoft.Win32;
 
 namespace GitCheckout
 {
@@ -112,19 +111,28 @@ namespace GitCheckout
             
             var protocol = new Protocol { Scheme = scheme, Host = host, Query = query };
 
-            var index = Settings.Default.Protocols.IndexOf(updateProtocolChoice.Value);
-            Settings.Default.Protocols[index] = protocol.ToString();
-            Settings.Default.Save();
+
 
             if (protocol.Scheme != updateProtocolChoiceValue.Scheme)
             {
-                if (RegisterProtocol(protocol))
+                if (DeregisterProtocol(updateProtocolChoiceValue))
                 {
-                    Console.WriteLine(@"Protocol updated and registered");
+                    if (RegisterProtocol(protocol))
+                    {
+                        var index = Settings.Default.Protocols.IndexOf(updateProtocolChoice.Value);
+                        Settings.Default.Protocols[index] = protocol.ToString();
+                        Settings.Default.Save();
+                    
+                        Console.WriteLine(@"Protocol updated and registered");
+                    }
+                    else
+                    {
+                        Console.WriteLine(@"Protocol updated but not registered. To register protocols, please attempt to run the application manually as administrator.");
+                    }
                 }
                 else
                 {
-                    Console.WriteLine(@"Protocol updated but not registered. To register protocols, please attempt to run the application manually as administrator.");
+                    Console.WriteLine(@"Protocol not updated. To update protocols, please attempt to run the application manually as administrator.");
                 }
                 Console.WriteLine();
             }
@@ -137,12 +145,18 @@ namespace GitCheckout
             
             var removeProtocolChoiceValue = new Protocol(removeProtocolChoice.Value);
 
-            //TODO: Deregister protocol
-            
-            Settings.Default.Protocols.Remove(removeProtocolChoice.Value);
-            Settings.Default.Save();
-            
-            Console.WriteLine($@"Removed protocol ""{removeProtocolChoiceValue.Scheme}""");
+            if (DeregisterProtocol(removeProtocolChoiceValue))
+            {
+                Settings.Default.Protocols.Remove(removeProtocolChoice.Value);
+                Settings.Default.Save();
+
+                Console.WriteLine($@"Removed protocol ""{removeProtocolChoiceValue.Scheme}""");
+            }
+            else
+            {
+                Console.WriteLine(@"Protocol not removed. To remove protocols, please attempt to run the application manually as administrator.");
+            }
+
             Console.WriteLine();
         }
 
@@ -164,6 +178,25 @@ namespace GitCheckout
             Console.WriteLine();
         }
 
+        
+        public static void DeregisterProtocol()
+        {
+            var deregisterProtocolChoice = new Choices("Please select a protocol to deregister", Settings.Default.Protocols).Choose();
+            if (deregisterProtocolChoice == null) return;
+
+            var deregisterProtocolChoiceValue = new Protocol(deregisterProtocolChoice.Value);
+            
+            if (DeregisterProtocol(deregisterProtocolChoiceValue))
+            {
+                Console.WriteLine(@"Protocol deregistered");
+            }
+            else
+            {
+                Console.WriteLine(@"Protocol not deregistered. To deregister protocols, please attempt to run the application manually as administrator.");
+            }
+            Console.WriteLine();
+        }
+        
         public static void ListProtocols()
         {
             Console.WriteLine(@"Protocols:");
@@ -182,6 +215,7 @@ namespace GitCheckout
                     .Add(@"Update a protocol", ManageChoices.Update)
                     .Add(@"Remove a protocol", ManageChoices.Remove)
                     .Add(@"Re-register a protocol", ManageChoices.ReRegister)
+                    .Add(@"Deregister a protocol", ManageChoices.Deregister)
                     .Add(@"List protocols", ManageChoices.List)
                     .Add("Return", ManageChoices.Return)
                     .Choose();
@@ -200,6 +234,9 @@ namespace GitCheckout
                 case ManageChoices.ReRegister:
                     ReRegisterProtocol();
                     break;
+                case ManageChoices.Deregister:
+                    DeregisterProtocol();
+                    break;
                 case ManageChoices.List:
                     ListProtocols();
                     break;
@@ -209,26 +246,54 @@ namespace GitCheckout
 
             return true;
         }
-        
-        private static bool RegisterProtocol(Protocol protocol)
+
+        public static bool RegisterProtocol(Protocol protocol)
         {
-            var pathSplit = AppDomain.CurrentDomain.BaseDirectory.Split('\\');
-            var path = string.Join(@"\\", pathSplit);
-            
-            var protocolReg = Resources.protocol
-                .Replace("{{protocol}}", protocol.Scheme)
-                .Replace("{{filepath}}", path);
+            return RegisterProtocolInner(protocol) || Program.Elevate(ElevateFor.Register, protocol.ToString());
+        }
+
+        public static bool RegisterProtocolInner(Protocol protocol)
+        {
+            var path = typeof(Program).Assembly.Location;
 
             try
             {
-                File.WriteAllText("protocol.reg", protocolReg);
+                using (var key = Registry.ClassesRoot.CreateSubKey(protocol.Scheme))
+                {
+                    key.SetValue("", $"URL:{protocol.Scheme} Protocol");
+                    key.SetValue("URL Protocol", "");
 
-                Process regeditProcess = Process.Start("regedit.exe", $"/s \"{AppDomain.CurrentDomain.BaseDirectory}protocol.reg\"");
-                regeditProcess?.WaitForExit();
+                    using (var defaultIcon = key.CreateSubKey("DefaultIcon"))
+                    {
+                        defaultIcon.SetValue("", $"{path},1");
+                    }
 
-                File.Delete("protocol.reg");
+                    using (var commandKey = key.CreateSubKey(@"shell\open\command"))
+                    {
+                        commandKey.SetValue("", $"\"{path}\" \"%1\"");
+                    }
+                }
             }
-            catch (Exception)
+            catch
+            {
+                return false;
+            }
+
+            return true;
+        }
+        
+        public static bool DeregisterProtocol(Protocol protocol)
+        {
+            return DeregisterProtocolInner(protocol) || Program.Elevate(ElevateFor.Deregister, protocol.ToString());
+        }
+
+        public static bool DeregisterProtocolInner(Protocol protocol)
+        {
+            try
+            {
+                Registry.ClassesRoot.DeleteSubKeyTree(protocol.Scheme, false);
+            }
+            catch
             {
                 return false;
             }

@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="GitCheckout.exe" size="22528">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="GitCheckout.exe" size="24576">
       <assemblyIdentity name="GitCheckout" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>kBRjEGTy57TuoUSoqy8J2lhnSK9KqmDUwh/TpF9mBY4=</dsig:DigestValue>
+        <dsig:DigestValue>YpRcEeV6kwuqpDZGNuAUBeR+A+coMPRyBa/X44yl8AU=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

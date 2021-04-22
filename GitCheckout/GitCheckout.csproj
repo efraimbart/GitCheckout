@@ -76,7 +76,6 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <None Include="Resources\protocol.reg" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="Properties\Resources.resx">
@@ -87,5 +86,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="git-branch-379383244b3a6b64.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources" />
   </ItemGroup>
 </Project>

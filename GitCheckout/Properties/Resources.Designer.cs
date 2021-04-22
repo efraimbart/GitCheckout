@@ -59,28 +59,5 @@ namespace GitCheckout.Properties {
                 resourceCulture = value;
             }
         }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to REGEDIT4
-        ///
-        ///[HKEY_CLASSES_ROOT\{{protocol}}]
-        ///@=&quot;URL:{{protocol}} Protocol&quot;
-        ///&quot;URL Protocol&quot;=&quot;&quot;
-        ///
-        ///[HKEY_CLASSES_ROOT\{{protocol}}\DefaultIcon]
-        ///@=&quot;\&quot;{{filepath}}GitCheckout.exe\&quot;&quot;
-        ///
-        ///[HKEY_CLASSES_ROOT\{{protocol}}\shell]
-        ///
-        ///[HKEY_CLASSES_ROOT\{{protocol}}\shell\open]
-        ///
-        ///[HKEY_CLASSES_ROOT\{{protocol}}\shell\open\command]
-        ///@=&quot;\&quot;{{filepath}}GitCheckout.exe\&quot; \&quot;%1\&quot;&quot;.
-        /// </summary>
-        internal static string protocol {
-            get {
-                return ResourceManager.GetString("protocol", resourceCulture);
-            }
-        }
     }
 }
