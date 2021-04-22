@@ -5,11 +5,11 @@ REGEDIT4
 "URL Protocol"=""
 
 [HKEY_CLASSES_ROOT\sourcetree\DefaultIcon]
-@="\"{{filepath}}GitCheckout.exe\""
+@="\"C:\\Users\\efrai\\RiderProjects\\GitCheckout\\GitCheckout\\bin\\Release\\GitCheckout.exe\""
 
 [HKEY_CLASSES_ROOT\sourcetree\shell]
 
 [HKEY_CLASSES_ROOT\sourcetree\shell\open]
 
 [HKEY_CLASSES_ROOT\sourcetree\shell\open\command]
-@="\"{{filepath}}GitCheckout.exe\" \"%1\""
+@="\"C:\\Users\\efrai\\RiderProjects\\GitCheckout\\GitCheckout\\bin\\Release\\GitCheckout.exe\" \"%1\""

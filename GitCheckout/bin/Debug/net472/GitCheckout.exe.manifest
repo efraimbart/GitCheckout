@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="GitCheckout.exe" size="18432">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="GitCheckout.exe" size="23552">
       <assemblyIdentity name="GitCheckout" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>OkfmLJcYPVK2i+4i3vKaAE//lkJKHwcs12/E+WVOM+A=</dsig:DigestValue>
+        <dsig:DigestValue>drVW+iNKCXTwbrevE+SYnOx2DugC5mc/1Px4jT//PpE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -63,13 +63,13 @@
       <dsig:DigestValue>bLIR6D+AN88B84hWY/gf9Ms4WbhX6oN3XzVtNoNbb00=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="GitCheckout.exe.config" size="969">
+  <file name="GitCheckout.exe.config" size="957">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>ZkAifx6FmgZwMUm3R57/Hx1bmHT2ljkKl6dPlsW0B58=</dsig:DigestValue>
+      <dsig:DigestValue>M98LVUHIlXI4MPNdi6oG6PPSJI0LQXD2N6v1GjSpuWk=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>

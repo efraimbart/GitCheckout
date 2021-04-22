@@ -36,13 +36,12 @@ namespace GitCheckout.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool Registered {
+        public global::System.Collections.Specialized.StringCollection Protocols {
             get {
-                return ((bool)(this["Registered"]));
+                return ((global::System.Collections.Specialized.StringCollection)(this["Protocols"]));
             }
             set {
-                this["Registered"] = value;
+                this["Protocols"] = value;
             }
         }
     }

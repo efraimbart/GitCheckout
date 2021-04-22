@@ -63,23 +63,23 @@ namespace GitCheckout.Properties {
         /// <summary>
         ///   Looks up a localized string similar to REGEDIT4
         ///
-        ///[HKEY_CLASSES_ROOT\sourcetree]
-        ///@=&quot;URL:sourcetree Protocol&quot;
+        ///[HKEY_CLASSES_ROOT\{{protocol}}]
+        ///@=&quot;URL:{{protocol}} Protocol&quot;
         ///&quot;URL Protocol&quot;=&quot;&quot;
         ///
-        ///[HKEY_CLASSES_ROOT\sourcetree\DefaultIcon]
-        ///@=&quot;\&quot;C:\\Program Files\\GitCheckout\\GitCheckout.exe\&quot;&quot;
+        ///[HKEY_CLASSES_ROOT\{{protocol}}\DefaultIcon]
+        ///@=&quot;\&quot;{{filepath}}GitCheckout.exe\&quot;&quot;
         ///
-        ///[HKEY_CLASSES_ROOT\sourcetree\shell]
+        ///[HKEY_CLASSES_ROOT\{{protocol}}\shell]
         ///
-        ///[HKEY_CLASSES_ROOT\sourcetree\shell\open]
+        ///[HKEY_CLASSES_ROOT\{{protocol}}\shell\open]
         ///
-        ///[HKEY_CLASSES_ROOT\sourcetree\shell\open\command]
-        ///@=&quot;\&quot;C:\\Program Files\\GitCheckout\\GitCheckout.exe\&quot; \&quot;%1\&quot; \&quot;%2\&quot; \&quot;%3\&quot; \&quot;%4\&quot; \&quot;%5\&quot; \&quot;%6\&quot; \&quot;%7\&quot; \&quot;%8\&quot; \&quot;%9\&quot;&quot;.
+        ///[HKEY_CLASSES_ROOT\{{protocol}}\shell\open\command]
+        ///@=&quot;\&quot;{{filepath}}GitCheckout.exe\&quot; \&quot;%1\&quot;&quot;.
         /// </summary>
-        internal static string sourcetree {
+        internal static string protocol {
             get {
-                return ResourceManager.GetString("sourcetree", resourceCulture);
+                return ResourceManager.GetString("protocol", resourceCulture);
             }
         }
     }
