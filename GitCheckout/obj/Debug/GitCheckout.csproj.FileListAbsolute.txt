@@ -10,3 +10,9 @@ C:\Users\efrai\Documents\Visual Studio 2017\Projects\GitCheckout\GitCheckout\obj
 C:\Users\efrai\Documents\Visual Studio 2017\Projects\GitCheckout\GitCheckout\obj\Debug\GitCheckout.csproj.GenerateResource.Cache
 C:\Users\efrai\Documents\Visual Studio 2017\Projects\GitCheckout\GitCheckout\obj\Debug\GitCheckout.exe.manifest
 C:\Users\efrai\Documents\Visual Studio 2017\Projects\GitCheckout\GitCheckout\obj\Debug\GitCheckout.application
+C:\Users\efrai\RiderProjects\GitCheckout\GitCheckout\obj\Debug\GitCheckout.csprojAssemblyReference.cache
+C:\Users\efrai\RiderProjects\GitCheckout\GitCheckout\obj\Debug\GitCheckout.Properties.Resources.resources
+C:\Users\efrai\RiderProjects\GitCheckout\GitCheckout\obj\Debug\GitCheckout.csproj.GenerateResource.cache
+C:\Users\efrai\RiderProjects\GitCheckout\GitCheckout\obj\Debug\GitCheckout.csproj.CoreCompileInputs.cache
+C:\Users\efrai\RiderProjects\GitCheckout\GitCheckout\obj\Debug\GitCheckout.exe
+C:\Users\efrai\RiderProjects\GitCheckout\GitCheckout\obj\Debug\GitCheckout.pdb

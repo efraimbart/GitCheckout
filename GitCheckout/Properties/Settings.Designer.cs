@@ -12,7 +12,7 @@ namespace GitCheckout.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.1.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.9.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -25,13 +25,24 @@ namespace GitCheckout.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string WorkingDirectory {
+        public global::System.Collections.Specialized.StringCollection WorkingDirectories {
             get {
-                return ((string)(this["WorkingDirectory"]));
+                return ((global::System.Collections.Specialized.StringCollection)(this["WorkingDirectories"]));
             }
             set {
-                this["WorkingDirectory"] = value;
+                this["WorkingDirectories"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool Registered {
+            get {
+                return ((bool)(this["Registered"]));
+            }
+            set {
+                this["Registered"] = value;
             }
         }
     }

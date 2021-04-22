@@ -1,0 +1,50 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\efrai\\RiderProjects\\GitCheckout\\GitCheckout\\GitCheckout.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\efrai\\RiderProjects\\GitCheckout\\GitCheckout\\GitCheckout.csproj": {
+      "version": "1.0.5",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\efrai\\RiderProjects\\GitCheckout\\GitCheckout\\GitCheckout.csproj",
+        "projectName": "GitCheckout",
+        "projectPath": "C:\\Users\\efrai\\RiderProjects\\GitCheckout\\GitCheckout\\GitCheckout.csproj",
+        "packagesPath": "C:\\Users\\efrai\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\efrai\\RiderProjects\\GitCheckout\\GitCheckout\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\efrai\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net472"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net472": {
+            "targetAlias": "net472",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net472": {
+          "targetAlias": "net472",
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "win7-x86": {
+          "#import": []
+        }
+      }
+    }
+  }
+}
