@@ -28,7 +28,7 @@ namespace GitCheckout
             {
                 if (Args.Any())
                 {
-                    Console.WriteLine(@"Invalid checkout url");
+                    Console.WriteLine(@$"Invalid checkout url '{Args[0]}'");
                     Console.WriteLine();
                 }
                 
@@ -113,7 +113,7 @@ namespace GitCheckout
                 
                 if (string.IsNullOrWhiteSpace(branchQuery)) continue;
                 
-                branch = branchQuery.Split('/').Last();
+                branch = branchQuery.Replace("refs/heads/", "");
                 return true;
             }
 
@@ -123,8 +123,8 @@ namespace GitCheckout
         private static bool Checkout(string branch)
         {
             var checkoutDirectoryChoice = 
-                new Choices("Please select a git repo to checkout on", Settings.Default.WorkingDirectories)
-                    .Add("Manage")
+                new Choices($@"Please select a git repo to checkout branch '{branch}' on:", Settings.Default.WorkingDirectories)
+                    .Add("Manage repos")
                     .Add("Cancel")
                     .Choose();
                 
@@ -132,10 +132,11 @@ namespace GitCheckout
 
             switch (checkoutDirectoryChoice.Value)
             {
-                case "Manage":
+                case "Manage repos":
                     while(WorkingDirectoryManager.ManageWorkingDirectories()) {}
                     return false;
                 case "Cancel":
+                    Environment.Exit(0);
                     return true;
                 default:
                     Console.WriteLine(@"Fetching new branches...");
