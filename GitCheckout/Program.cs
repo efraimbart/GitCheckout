@@ -126,6 +126,7 @@ namespace GitCheckout
                 new Choices($@"Please select a git repo to checkout branch '{branch}' on:", Settings.Default.WorkingDirectories)
                     .Add("Manage repos")
                     .Add("Cancel")
+                    .Default(Settings.Default.DefaultWorkingDirectory ?? Settings.Default.LastUsedWorkingDirectory)
                     .Choose();
                 
             if (checkoutDirectoryChoice == null) return false;
@@ -139,6 +140,10 @@ namespace GitCheckout
                     Environment.Exit(0);
                     return true;
                 default:
+                    var index = Settings.Default.WorkingDirectories.IndexOf(checkoutDirectoryChoice.Value);
+                    Settings.Default.LastUsedWorkingDirectory = index;
+                    Settings.Default.Save();
+
                     Console.WriteLine(@"Fetching new branches...");
                     RunGit("fetch --progress", checkoutDirectoryChoice.Value);
                     Console.WriteLine(@"Done!");

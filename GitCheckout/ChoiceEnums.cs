@@ -22,6 +22,7 @@
         ReRegister,
         Deregister,
         List,
+        Default,
         Return
     }
 }

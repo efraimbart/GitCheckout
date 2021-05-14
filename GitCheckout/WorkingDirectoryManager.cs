@@ -64,6 +64,31 @@ namespace GitCheckout
             }
             Console.WriteLine();
         }
+        
+        public static void DefaultWorkingDirectory()
+        {
+            var defaultDirectoryChoice = new Choices("Please select a git repo to set as default", Settings.Default.WorkingDirectories)
+                .Add("Cancel")
+                .Default(Settings.Default.DefaultWorkingDirectory)
+                .Choose();
+            
+            if (defaultDirectoryChoice == null) return;
+
+            switch (defaultDirectoryChoice.Value)
+            {
+                case "Cancel":
+                    return;
+                default:
+                    var index = Settings.Default.WorkingDirectories.IndexOf(defaultDirectoryChoice.Value);
+                    Settings.Default.DefaultWorkingDirectory = index;
+                    Settings.Default.Save();
+            
+                    Console.WriteLine($@"Set repo ""{defaultDirectoryChoice.Value}"" as default");
+                    Console.WriteLine();
+                    return;
+            }
+        }
+
 
         public static bool ManageWorkingDirectories()
         {
@@ -72,7 +97,8 @@ namespace GitCheckout
                     .Add(@"Add a git repo", ManageChoices.Add)
                     .Add(@"Update a git repo", ManageChoices.Update)
                     .Add(@"Remove a git repo", ManageChoices.Remove)
-                    .Add(@"List repos", ManageChoices.List)
+                    .Add(@"List git repos", ManageChoices.List)
+                    .Add(@"Set a git repo as default", ManageChoices.List)
                     .Add("Return", ManageChoices.Return)
                     .Choose();
                 
@@ -89,6 +115,9 @@ namespace GitCheckout
                     break;                
                 case ManageChoices.List:
                     ListWorkingDirectories();
+                    break;                
+                case ManageChoices.Default:
+                    DefaultWorkingDirectory();
                     break;
                 case ManageChoices.Return:
                     return false;

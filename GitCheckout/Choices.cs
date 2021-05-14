@@ -7,7 +7,8 @@ namespace GitCheckout
 {
     public class Choices<T> : List<Choices<T>.Choice>
     {
-        public string Question { get; set; }
+        private string Question { get; set; }
+        private int? DefaultChoice { get; set; }
         
         public Choices(string question)
         {
@@ -20,9 +21,20 @@ namespace GitCheckout
             return this;
         }
 
-        public Choices<T> Add(T value)
+        public Choices<T> Add(T value, bool defaultChoice = false)
         {
+            if (defaultChoice)
+            {
+                DefaultChoice = Count;
+            }
+            
             return Add(value.ToString(), value);
+        }
+
+        public Choices<T> Default(int? index)
+        {
+            DefaultChoice = index;
+            return this;
         }
 
         public Choice Choose()
@@ -38,18 +50,23 @@ namespace GitCheckout
             var chosenString = Console.ReadLine();
             Console.WriteLine();
 
+            if (string.IsNullOrWhiteSpace(chosenString))
+            {
+                return this.ElementAtOrDefault(DefaultChoice);
+            }
+            
             var chosen = this.FirstOrDefault(x => x.Text.Equals(chosenString, StringComparison.InvariantCultureIgnoreCase));
             if (chosen != null)
             {
                 return chosen;
             }
-            
-            if (!int.TryParse(chosenString, out var chosenNumber))
+
+            if (int.TryParse(chosenString, out var chosenNumber))
             {
-                return null;
+                return this.ElementAtOrDefault(chosenNumber - 1);
             }
-            
-            return this.ElementAtOrDefault(chosenNumber - 1);
+
+            return null;
         }
 
         public class Choice

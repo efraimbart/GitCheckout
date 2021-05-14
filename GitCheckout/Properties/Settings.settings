@@ -8,6 +8,12 @@
     <Setting Name="Protocols" Type="System.Collections.Specialized.StringCollection" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
+    <Setting Name="LastUsedWorkingDirectory" Type="System.Nullable&lt;System.Int32&gt;" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="DefaultWorkingDirectory" Type="System.Nullable&lt;System.Int32&gt;" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
   </Settings>
 </SettingsFile>
 

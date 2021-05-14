@@ -44,5 +44,27 @@ namespace GitCheckout.Properties {
                 this["Protocols"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Nullable<System.Int32> LastUsedWorkingDirectory {
+            get {
+                return ((global::System.Nullable<System.Int32>)(this["LastUsedWorkingDirectory"]));
+            }
+            set {
+                this["LastUsedWorkingDirectory"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Nullable<System.Int32> DefaultWorkingDirectory {
+            get {
+                return ((global::System.Nullable<System.Int32>)(this["DefaultWorkingDirectory"]));
+            }
+            set {
+                this["DefaultWorkingDirectory"] = value;
+            }
+        }
     }
 }
