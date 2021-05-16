@@ -65,11 +65,11 @@ namespace GitCheckout
             Console.WriteLine();
         }
         
-        public static void DefaultWorkingDirectory()
+        public static void SetDefaultWorkingDirectory()
         {
             var defaultDirectoryChoice = new Choices("Please select a git repo to set as default", Settings.Default.WorkingDirectories)
                 .Add("Cancel")
-                .Default(Settings.Default.DefaultWorkingDirectory)
+                .Default(Settings.Default.DefaultWorkingDirectory ?? Settings.Default.LastUsedWorkingDirectory)
                 .Choose();
             
             if (defaultDirectoryChoice == null) return;
@@ -89,6 +89,14 @@ namespace GitCheckout
             }
         }
 
+        public static void ClearDefaultWorkingDirectory()
+        {
+            Settings.Default.DefaultWorkingDirectory = null;
+            Settings.Default.Save();
+            
+            Console.WriteLine(@"Cleared default repo");
+            Console.WriteLine();
+        }
 
         public static bool ManageWorkingDirectories()
         {
@@ -98,7 +106,8 @@ namespace GitCheckout
                     .Add(@"Update a git repo", ManageChoices.Update)
                     .Add(@"Remove a git repo", ManageChoices.Remove)
                     .Add(@"List git repos", ManageChoices.List)
-                    .Add(@"Set a git repo as default", ManageChoices.List)
+                    .Add(@"Set a git repo as default", ManageChoices.SetDefault)
+                    .Add(@"Clear default repo", ManageChoices.ClearDefault)
                     .Add("Return", ManageChoices.Return)
                     .Choose();
                 
@@ -116,8 +125,11 @@ namespace GitCheckout
                 case ManageChoices.List:
                     ListWorkingDirectories();
                     break;                
-                case ManageChoices.Default:
-                    DefaultWorkingDirectory();
+                case ManageChoices.SetDefault:
+                    SetDefaultWorkingDirectory();
+                    break;
+                case ManageChoices.ClearDefault:
+                    ClearDefaultWorkingDirectory();
                     break;
                 case ManageChoices.Return:
                     return false;

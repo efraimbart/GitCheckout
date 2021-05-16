@@ -22,7 +22,8 @@
         ReRegister,
         Deregister,
         List,
-        Default,
+        SetDefault,
+        ClearDefault,
         Return
     }
 }

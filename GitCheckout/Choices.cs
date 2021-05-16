@@ -15,20 +15,20 @@ namespace GitCheckout
             Question = question;
         }
         
-        public Choices<T> Add(string text, T value)
+        public Choices<T> Add(string text, T value, bool defaultChoice = false)
         {
+            if (defaultChoice)
+            {
+                DefaultChoice = Count;
+            }
+
             Add(new Choice {Text = text, Value = value});
             return this;
         }
 
         public Choices<T> Add(T value, bool defaultChoice = false)
         {
-            if (defaultChoice)
-            {
-                DefaultChoice = Count;
-            }
-            
-            return Add(value.ToString(), value);
+            return Add(value.ToString(), value, defaultChoice);
         }
 
         public Choices<T> Default(int? index)
@@ -39,7 +39,11 @@ namespace GitCheckout
 
         public Choice Choose()
         {
-            Console.WriteLine(Question);
+            var questionWithDefault = DefaultChoice.HasValue
+                ? $"{Question} [{this.ElementAtOrDefault(DefaultChoice)?.Text}]"
+                : Question;
+
+            Console.WriteLine(questionWithDefault);
             
             for (var i = 0; i < Count; i++)
             {
