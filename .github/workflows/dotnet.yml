@@ -15,7 +15,7 @@ jobs:
       id: release
       uses: rymndhng/release-on-push-action@v0.18.0
       with:
-        bump_version_scheme: minor
+        bump_version_scheme: patch
         tag_prefix: v
   build:
     runs-on: ubuntu-latest
@@ -32,7 +32,7 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
-      run: dotnet publish -r win-x64 -c release -p:Version=${{ needs.release.outputs.version }} -p:PublishSingleFile=true --self-contained true --framework net5.0
+      run: dotnet publish -r win-x64 -c release -p:Version=${{ needs.release.outputs.version }} -p:PublishSingleFile=true -p:PublishTrimmed=true --self-contained true --framework net5.0
     - name: Add Release files
       uses: ncipollo/release-action@v1
       with:
