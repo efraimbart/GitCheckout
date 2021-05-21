@@ -1,9 +1,7 @@
 name: .NET
-
 on:
   push:
     branches: [ main ]
-     
 jobs:
   release:
     runs-on: ubuntu-latest
@@ -24,7 +22,7 @@ jobs:
     needs: release
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    if: needs.release.output.version
+    if: needs.release.outputs.version
     steps:
     - uses: actions/checkout@v2
     - name: Setup .NET
@@ -34,7 +32,7 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
-      run: dotnet publish -r win-x64 -c release -p:Version=${{ needs.release.output.version }} -p:PublishSingleFile=true --self-contained true --framework net5.0
+      run: dotnet publish -r win-x64 -c release -p:Version=${{ needs.release.outputs.version }} -p:PublishSingleFile=true --self-contained true --framework net5.0
     - name: Add Release files
       uses: ncipollo/release-action@v1
       with:
@@ -42,5 +40,5 @@ jobs:
         allowUpdates: true
         omitBodyDuringUpdate: true
         omitNameDuringUpdate: true
-        tag: ${{ needs.release.output.tag_name }}
+        tag: ${{ needs.release.outputs.tag_name }}
         artifacts: GitCheckout/bin/Release/net5.0/win-x64/publish/GitCheckout.exe
