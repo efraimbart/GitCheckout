@@ -1,8 +1,0 @@
-C:\Users\efrai\RiderProjects\GitCheckout\GitCheckout\obj\Debug\net452\GitCheckout.csprojAssemblyReference.cache
-C:\Users\efrai\RiderProjects\GitCheckout\GitCheckout\obj\Debug\net452\GitCheckout.Properties.Resources.resources
-C:\Users\efrai\RiderProjects\GitCheckout\GitCheckout\obj\Debug\net452\GitCheckout.csproj.GenerateResource.cache
-C:\Users\efrai\RiderProjects\GitCheckout\GitCheckout\obj\Debug\net452\GitCheckout.AssemblyInfoInputs.cache
-C:\Users\efrai\RiderProjects\GitCheckout\GitCheckout\obj\Debug\net452\GitCheckout.AssemblyInfo.cs
-C:\Users\efrai\RiderProjects\GitCheckout\GitCheckout\obj\Debug\net452\GitCheckout.csproj.CoreCompileInputs.cache
-C:\Users\efrai\RiderProjects\GitCheckout\GitCheckout\obj\Debug\net452\GitCheckout.exe
-C:\Users\efrai\RiderProjects\GitCheckout\GitCheckout\obj\Debug\net452\GitCheckout.pdb

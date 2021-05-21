@@ -1,3 +1,0 @@
-C:\Users\efrai\RiderProjects\GitCheckout\GitCheckout\bin\Release\net5.0\publish\GitCheckout.pdb
-C:\Users\efrai\RiderProjects\GitCheckout\GitCheckout\bin\Release\net5.0\publish\GitCheckout.dll.config
-C:\Users\efrai\RiderProjects\GitCheckout\GitCheckout\bin\Release\net5.0\publish\GitCheckout.exe

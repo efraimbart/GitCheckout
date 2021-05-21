@@ -1,8 +1,0 @@
-C:\Users\efrai\RiderProjects\GitCheckout\GitCheckout\obj\Debug\net5.0-windows\GitCheckout.csprojAssemblyReference.cache
-C:\Users\efrai\RiderProjects\GitCheckout\GitCheckout\obj\Debug\net5.0-windows\GitCheckout.dll.config
-C:\Users\efrai\RiderProjects\GitCheckout\GitCheckout\obj\Debug\net5.0-windows\GitCheckout.Properties.Resources.resources
-C:\Users\efrai\RiderProjects\GitCheckout\GitCheckout\obj\Debug\net5.0-windows\GitCheckout.csproj.GenerateResource.cache
-C:\Users\efrai\RiderProjects\GitCheckout\GitCheckout\obj\Debug\net5.0-windows\GitCheckout.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\efrai\RiderProjects\GitCheckout\GitCheckout\obj\Debug\net5.0-windows\GitCheckout.AssemblyInfoInputs.cache
-C:\Users\efrai\RiderProjects\GitCheckout\GitCheckout\obj\Debug\net5.0-windows\GitCheckout.AssemblyInfo.cs
-C:\Users\efrai\RiderProjects\GitCheckout\GitCheckout\obj\Debug\net5.0-windows\GitCheckout.csproj.CoreCompileInputs.cache
