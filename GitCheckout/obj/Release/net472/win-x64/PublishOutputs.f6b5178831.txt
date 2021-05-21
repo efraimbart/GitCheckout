@@ -1,0 +1,8 @@
+C:\Users\efrai\RiderProjects\GitCheckout\GitCheckout\bin\Release\net472\publish\GitCheckout.exe
+C:\Users\efrai\RiderProjects\GitCheckout\GitCheckout\bin\Release\net472\publish\GitCheckout.exe.config
+C:\Users\efrai\RiderProjects\GitCheckout\GitCheckout\bin\Release\net472\publish\GitCheckout.pdb
+C:\Users\efrai\RiderProjects\GitCheckout\GitCheckout\bin\Release\net472\publish\Microsoft.Win32.Registry.dll
+C:\Users\efrai\RiderProjects\GitCheckout\GitCheckout\bin\Release\net472\publish\System.Configuration.ConfigurationManager.dll
+C:\Users\efrai\RiderProjects\GitCheckout\GitCheckout\bin\Release\net472\publish\System.Security.AccessControl.dll
+C:\Users\efrai\RiderProjects\GitCheckout\GitCheckout\bin\Release\net472\publish\System.Security.Permissions.dll
+C:\Users\efrai\RiderProjects\GitCheckout\GitCheckout\bin\Release\net472\publish\System.Security.Principal.Windows.dll

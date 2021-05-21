@@ -6,3 +6,6 @@ C:\Users\efrai\RiderProjects\GitCheckout\GitCheckout\obj\Debug\net5.0\GitCheckou
 C:\Users\efrai\RiderProjects\GitCheckout\GitCheckout\obj\Debug\net5.0\GitCheckout.AssemblyInfoInputs.cache
 C:\Users\efrai\RiderProjects\GitCheckout\GitCheckout\obj\Debug\net5.0\GitCheckout.AssemblyInfo.cs
 C:\Users\efrai\RiderProjects\GitCheckout\GitCheckout\obj\Debug\net5.0\GitCheckout.csproj.CoreCompileInputs.cache
+C:\Users\efrai\RiderProjects\GitCheckout\GitCheckout\obj\Debug\net5.0\GitCheckout.dll
+C:\Users\efrai\RiderProjects\GitCheckout\GitCheckout\obj\Debug\net5.0\ref\GitCheckout.dll
+C:\Users\efrai\RiderProjects\GitCheckout\GitCheckout\obj\Debug\net5.0\GitCheckout.pdb

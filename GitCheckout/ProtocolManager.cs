@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using GitCheckout.Properties;
 using Microsoft.Win32;
 
@@ -254,24 +255,23 @@ namespace GitCheckout
 
         public static bool RegisterProtocolInner(Protocol protocol)
         {
-            var path = typeof(Program).Assembly.Location;
+            using var currentProcess = Process.GetCurrentProcess();
+            var path = currentProcess.MainModule?.FileName;
 
             try
             {
-                using (var key = Registry.ClassesRoot.CreateSubKey(protocol.Scheme))
+                using var key = Registry.ClassesRoot.CreateSubKey(protocol.Scheme);
+                key.SetValue("", $"URL:{protocol.Scheme} Protocol");
+                key.SetValue("URL Protocol", "");
+
+                using (var defaultIcon = key.CreateSubKey("DefaultIcon"))
                 {
-                    key.SetValue("", $"URL:{protocol.Scheme} Protocol");
-                    key.SetValue("URL Protocol", "");
+                    defaultIcon.SetValue("", $"{path},1");
+                }
 
-                    using (var defaultIcon = key.CreateSubKey("DefaultIcon"))
-                    {
-                        defaultIcon.SetValue("", $"{path},1");
-                    }
-
-                    using (var commandKey = key.CreateSubKey(@"shell\open\command"))
-                    {
-                        commandKey.SetValue("", $"\"{path}\" \"%1\"");
-                    }
+                using (var commandKey = key.CreateSubKey(@"shell\open\command"))
+                {
+                    commandKey.SetValue("", $"\"{path}\" \"%1\"");
                 }
             }
             catch

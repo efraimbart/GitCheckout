@@ -7,14 +7,14 @@
     <framework targetVersion="4.7.2" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="GitCheckout.exe.manifest" size="3993">
+    <dependentAssembly dependencyType="install" codebase="GitCheckout.exe.manifest" size="7561">
       <assemblyIdentity name="GitCheckout.exe" version="1.0.0.5" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>gLJd0XjwC4QgBYqra3ceAcTER69+FxdNKxwq9dDRUJk=</dsig:DigestValue>
+        <dsig:DigestValue>0bz+Tk7nP9hd5FJSOY3YB8+TW6Dv/HFnq6Hofi7/cKI=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

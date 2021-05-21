@@ -13,3 +13,9 @@ C:\Users\efrai\RiderProjects\GitCheckout\GitCheckout\obj\Release\net472\GitCheck
 C:\Users\efrai\RiderProjects\GitCheckout\GitCheckout\obj\Release\net472\GitCheckout.application
 C:\Users\efrai\RiderProjects\GitCheckout\GitCheckout\obj\Release\net472\GitCheckout.exe
 C:\Users\efrai\RiderProjects\GitCheckout\GitCheckout\obj\Release\net472\GitCheckout.pdb
+C:\Users\efrai\RiderProjects\GitCheckout\GitCheckout\bin\Release\net472\Microsoft.Win32.Registry.dll
+C:\Users\efrai\RiderProjects\GitCheckout\GitCheckout\bin\Release\net472\System.Configuration.ConfigurationManager.dll
+C:\Users\efrai\RiderProjects\GitCheckout\GitCheckout\bin\Release\net472\System.Security.AccessControl.dll
+C:\Users\efrai\RiderProjects\GitCheckout\GitCheckout\bin\Release\net472\System.Security.Permissions.dll
+C:\Users\efrai\RiderProjects\GitCheckout\GitCheckout\bin\Release\net472\System.Security.Principal.Windows.dll
+C:\Users\efrai\RiderProjects\GitCheckout\GitCheckout\obj\Release\net472\GitCheckout.csproj.CopyComplete

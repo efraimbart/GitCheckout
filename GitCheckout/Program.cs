@@ -194,12 +194,15 @@ namespace GitCheckout
 
         public static bool Elevate(ElevateFor elevateFor, string extraArgs)
         {
-            var path = typeof(Program).Assembly.Location;
-                
+            using var currentProcess = Process.GetCurrentProcess();
+            var path = currentProcess.MainModule?.FileName;
+
             try
             {
+                    
                 var startInfo = new ProcessStartInfo(path, $"/elevateFor {elevateFor} {extraArgs}")
                 {
+                    UseShellExecute = true,
                     Verb = "runas"
                 };
 
