@@ -2,11 +2,14 @@
 using System.Collections.Specialized;
 using System.Diagnostics;
 using System.Linq;
+using GitCheckout.Classes;
+using GitCheckout.Enums;
+using GitCheckout.Managers;
 using GitCheckout.Properties;
 
 namespace GitCheckout
 {
-    class Program
+    static class Program
     {
         private static string[] Args { get; set; }
         

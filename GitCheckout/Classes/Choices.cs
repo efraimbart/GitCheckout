@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Linq;
+using GitCheckout.Extensions;
 
-namespace GitCheckout
+namespace GitCheckout.Classes
 {
     public class Choices<T> : List<Choices<T>.Choice>
     {

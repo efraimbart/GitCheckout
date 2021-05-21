@@ -1,7 +1,9 @@
 ﻿using System;
+using GitCheckout.Classes;
+using GitCheckout.Enums;
 using GitCheckout.Properties;
 
-namespace GitCheckout
+namespace GitCheckout.Managers
 {
     internal static class WorkingDirectoryManager
     {

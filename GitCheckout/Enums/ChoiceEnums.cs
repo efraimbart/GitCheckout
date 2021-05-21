@@ -1,4 +1,4 @@
-﻿namespace GitCheckout
+﻿namespace GitCheckout.Enums
 {
     internal enum ProtocolChoices
     {

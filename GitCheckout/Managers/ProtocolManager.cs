@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Diagnostics;
+using GitCheckout.Classes;
+using GitCheckout.Enums;
 using GitCheckout.Properties;
 using Microsoft.Win32;
 
-namespace GitCheckout
+namespace GitCheckout.Managers
 {
     internal static class ProtocolManager
     {

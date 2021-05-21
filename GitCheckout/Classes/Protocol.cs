@@ -1,4 +1,4 @@
-﻿namespace GitCheckout
+﻿namespace GitCheckout.Classes
 {
     public class Protocol
     {

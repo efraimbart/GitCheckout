@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace GitCheckout
+namespace GitCheckout.Extensions
 {
     public static class Extensions
     {

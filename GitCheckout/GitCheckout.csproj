@@ -23,7 +23,7 @@
     <LangVersion>default</LangVersion>
     <Nullable>disable</Nullable>
     <SignAssembly>false</SignAssembly>
-    <TargetFrameworks>net472;net5.0</TargetFrameworks>
+    <TargetFramework>net5.0</TargetFramework>
     <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -69,7 +69,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="GitCheckout_TemporaryKey.pfx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
