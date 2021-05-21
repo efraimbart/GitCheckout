@@ -1,0 +1,39 @@
+name: .NET
+
+on:
+  push:
+    branches: [ main ]
+     
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    steps:
+    - name: Release
+      id: release
+      uses: rymndhng/release-on-push-action@v0.18.0
+      with:
+        bump_version_scheme: minor
+        tag_prefix: v
+    - uses: actions/checkout@v2
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 5.0.x
+    - name: Restore dependencies
+      run: dotnet restore
+    - name: Build
+      run: dotnet publish -r win-x64 -c release -p:Version=${{ steps.release.outputs.version }} -p:PublishSingleFile=true --self-contained true --framework net5.0
+    - name: Add Release files
+      uses: ncipollo/release-action@v1
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        allowUpdates: true
+        omitBodyDuringUpdate: true
+        omitNameDuringUpdate: true
+        tag: ${{ steps.release.outputs.tag_name }}
+        artifacts: GitCheckout/bin/Release/net5.0/win-x64/publish/GitCheckout.exe
