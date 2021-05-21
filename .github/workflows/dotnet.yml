@@ -24,6 +24,7 @@ jobs:
     needs: release
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    if: needs.release.output.version
     steps:
     - uses: actions/checkout@v2
     - name: Setup .NET
